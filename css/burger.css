@@ -1,0 +1,112 @@
+.burger {
+    position: relative;
+    float: left;
+    margin-left: 10px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+
+/* 
+  .burger:after {
+    content: "Menu";
+    position: absolute;
+    bottom: 7px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+  } */
+
+
+/*--------------------------------------
+   Creates the look of the burger icon
+   using the inner span and pseudo-elements
+  --------------------------------------*/
+
+.burger span,
+.burger span:before,
+.burger span:after {
+    position: absolute;
+    left: 10px;
+    top: 22px;
+    width: 40px;
+    height: 4px;
+    background: #fff;
+    border-radius: 0.2em;
+}
+
+
+/* Reset the left and create the pseudo-element */
+
+.burger span:before,
+.burger span:after {
+    content: "";
+    left: 0;
+}
+
+
+/* Top bar position */
+
+.burger span:before {
+    top: -8px;
+}
+
+
+/* Bottom bar position */
+
+.burger span:after {
+    top: 8px;
+}
+
+
+/* Get rid of more on action (IE9 or higher) */
+
+.burger-check:checked+.burger:after {
+    content: "";
+}
+
+
+/* Get rid of the middle bar on action (IE9 or higher) */
+
+.burger-check:checked+.burger span {
+    height: 0;
+    width: 0;
+}
+
+.burger-check:checked+.burger span:before,
+.burger-check:checked+.burger span:after {
+    top: 6px;
+}
+
+
+/* Rotates the top bar on action with full browser support (IE9 or higher) */
+
+.burger-check:checked+.burger span:before {
+    -webkit-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    transform: rotate(225deg);
+}
+
+.burger-check:checked+.burger span:after {
+    -webkit-transform: rotate(-225deg);
+    -ms-transform: rotate(225deg);
+    transform: rotate(-225deg);
+}
+
+.burger-check {
+    display: none;
+}
+
+.burger-check:checked~nav .dropdown-content {
+    display: block;
+}
+
+.burger-check+label {
+    transform: translateY(6px);
+}
+
+.burger-check:checked+label {
+    transform: none;
+}
